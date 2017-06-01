@@ -1,0 +1,35 @@
+{
+  "name": "macurie",
+  "version": "1.0.0",
+  "description": "Macurie Conference Management System",
+  "main": "./server/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "./node_modules/.bin/gulp compile",
+    "serve": "node ."
+  },
+  "keywords": [],
+  "author": "sarpt",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "morgan": "^1.8.2",
+    "pg": "^6.2.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.4"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.3",
+    "@types/express": "^4.0.35",
+    "@types/morgan": "^1.7.32",
+    "@types/node": "^7.0.23",
+    "@types/pg": "^6.1.40",
+    "@types/sequelize": "^4.0.55",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.7",
+    "nodemon": "^1.11.0",
+    "sequelize-cli": "^2.7.0",
+    "typescript": "^2.3.4"
+  }
+}
