@@ -1,6 +1,6 @@
-import express = require('express');
-import morganLogger = require('morgan');
-import bodyParser = require('body-parser');
+const express = require('express');
+const morganLogger = require('morgan');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -13,4 +13,4 @@ app.get('*', (request, response) => {
   response.status(200).send({message: 'Sup fool'});
 });
 
-export {app};
+module.exports = app;
