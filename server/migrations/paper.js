@@ -5,27 +5,27 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       title: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       subject: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       summary: {
         type: Sequelize.STRING,
-        allowNull: false
-      }, 
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       authorId: {
         type: Sequelize.INTEGER,
@@ -34,8 +34,8 @@ module.exports = {
           model: 'Authors',
           key: 'id',
           as: 'authorId',
-        }
-      }  
+        },
+      },
     }),
-  down: (queryInterface /* , Sequelize */) => queryInterface.dropTable('Papers')
+  down: queryInterface => queryInterface.dropTable('Papers'),
 };

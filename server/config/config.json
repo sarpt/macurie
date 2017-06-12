@@ -5,7 +5,11 @@
     "database": "macurie",
     "host": "127.0.0.1",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "jwtSecret": "435df345fd",
+    "jwtSession": {
+      "session": false
+    } 
   },
   "test": {
     "username": "postgres",
@@ -13,7 +17,11 @@
     "database": "macurie",
     "host": "127.0.0.1",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "jwtSecret": "",
+    "jwtSession": {
+      "session": false
+    } 
   },
   "production": {
     "username": "postgres",
@@ -21,6 +29,10 @@
     "database": "macurie",
     "host": "127.0.0.1",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "jwtSecret": "",
+    "jwtSession": {
+      "session": false
+    } 
   }
 }

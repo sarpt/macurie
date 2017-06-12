@@ -4,22 +4,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
-    }
-  }, 
+      primaryKey: true,
+    },
+  },
   {
     classMethods: {
       associate: (models) => {
         Reviewer.belongsTo(models.User, {
           foreignKey: 'userId',
-          onDelete: 'CASCADE'
+          onDelete: 'CASCADE',
         });
         Reviewer.hasMany(models.Review, {
           foreignKey: 'reviewerId',
-          as: 'reviews'
+          as: 'reviews',
         });
-      }
-    }
+      },
+    },
   });
   return Reviewer;
 };

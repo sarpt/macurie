@@ -1,16 +1,17 @@
 const express = require('express');
 const morganLogger = require('morgan');
 const bodyParser = require('body-parser');
+const auth = require('./auth');
+const routes = require('./routes/index');
 
 const app = express();
 
 app.use(morganLogger('dev'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(auth.initialize());
 
-app.get('*', (request, response) => {
-  response.status(200).send({message: 'Sup fool'});
-});
+routes(app);
 
 module.exports = app;

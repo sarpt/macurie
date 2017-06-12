@@ -5,15 +5,15 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       userId: {
         type: Sequelize.INTEGER,
@@ -22,8 +22,8 @@ module.exports = {
           model: 'Users',
           key: 'id',
           as: 'userId',
-        }
-      }  
+        },
+      },
     }),
-  down: (queryInterface /* , Sequelize */) => queryInterface.dropTable('Authors')
+  down: queryInterface => queryInterface.dropTable('Authors'),
 };

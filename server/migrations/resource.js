@@ -5,23 +5,23 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       filename: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       revisionNumber: {
         type: Sequelize.INTEGER,
-        allowNull: false
-      },      
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       paperId: {
         type: Sequelize.INTEGER,
@@ -30,8 +30,8 @@ module.exports = {
           model: 'Papers',
           key: 'id',
           as: 'paperId',
-        }
-      }  
+        },
+      },
     }),
-  down: (queryInterface /* , Sequelize */) => queryInterface.dropTable('Resources')
+  down: queryInterface => queryInterface.dropTable('Resources'),
 };

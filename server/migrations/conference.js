@@ -5,39 +5,39 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       date: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
       ticketFee: {
-        type: Sequelize.DECIMAL, 
-        allowNull: false
+        type: Sequelize.DECIMAL,
+        allowNull: false,
       },
       state: {
         type: Sequelize.ENUM('unregistered', 'registered'),
-        allowNull: false
+        allowNull: false,
       },
       domain: {
         type: Sequelize.ENUM('scientific', 'business', 'corporate'),
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       eventAdminId: {
         type: Sequelize.INTEGER,
@@ -46,8 +46,8 @@ module.exports = {
           model: 'EventAdministrators',
           key: 'id',
           as: 'eventAdminId',
-        }
-      }  
+        },
+      },
     }),
-  down: (queryInterface /* , Sequelize */) => queryInterface.dropTable('Conferences')
+  down: queryInterface => queryInterface.dropTable('Conferences'),
 };

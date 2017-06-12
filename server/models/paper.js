@@ -4,34 +4,34 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     subject: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     summary: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
-  }, 
+      allowNull: false,
+    },
+  },
   {
     classMethods: {
       associate: (models) => {
         Paper.belongsTo(models.Author, {
           foreignKey: 'authorId',
-          onDelete: 'CASCADE'
+          onDelete: 'CASCADE',
         });
         Paper.hasMany(models.Resource, {
           foreignKey: 'paperId',
-          as: 'revisions'
+          as: 'revisions',
         });
-      }
-    }
+      },
+    },
   });
   return Paper;
 };

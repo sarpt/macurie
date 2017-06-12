@@ -5,15 +5,15 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       reviewerId: {
         type: Sequelize.INTEGER,
@@ -22,8 +22,8 @@ module.exports = {
           model: 'Reviewers',
           key: 'id',
           as: 'reviewerId',
-        }
-      }  
+        },
+      },
     }),
-  down: (queryInterface /* , Sequelize */) => queryInterface.dropTable('Reviews')
+  down: queryInterface => queryInterface.dropTable('Reviews'),
 };

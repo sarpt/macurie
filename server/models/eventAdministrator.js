@@ -4,22 +4,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
-    }
-  }, 
+      primaryKey: true,
+    },
+  },
   {
     classMethods: {
       associate: (models) => {
         EventAdministrator.belongsTo(models.User, {
           foreignKey: 'userId',
-          onDelete: 'CASCADE'
+          onDelete: 'CASCADE',
         });
         EventAdministrator.hasMany(models.Conference, {
           foreignKey: 'eventAdminId',
-          as: 'conferences'
+          as: 'conferences',
         });
-      }
-    }
+      },
+    },
   });
   return EventAdministrator;
 };

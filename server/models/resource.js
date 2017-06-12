@@ -4,36 +4,34 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     filename: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     revisionNumber: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
-      allowNull: false
-    }
-  }, 
+      allowNull: false,
+    },
+  },
   {
     classMethods: {
       associate: (models) => {
         Resource.belongsTo(models.Review, {
           foreignKey: 'reviewId',
-          onDelete: 'CASCADE' 
+          onDelete: 'CASCADE',
         });
         Resource.belongsTo(models.Paper, {
           foreignKey: 'paperId',
-          onDelete: 'CASCADE' 
+          onDelete: 'CASCADE',
         });
-      }
-    }
+      },
+    },
   });
   return Resource;
 };
-
-

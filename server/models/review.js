@@ -4,34 +4,34 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     state: {
       type: DataTypes.ENUM('accepted', 'rejected'),
-      allowNull: false
+      allowNull: false,
     },
     comment: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-  }, 
+  },
   {
     classMethods: {
       associate: (models) => {
         Review.hasOne(models.Resource, {
           foreignKey: 'reviewId',
-          as: 'revision'
+          as: 'revision',
         });
         Review.hasOne(models.Paper, {
           foreignKey: 'reviewId',
-          as: 'paper'
-        });      
+          as: 'paper',
+        });
         Review.belongsTo(models.Reviewer, {
           foreignKey: 'reviewerId',
-          onDelete: 'CASCADE'
+          onDelete: 'CASCADE',
         });
-      }
-    }
+      },
+    },
   });
   return Review;
 };

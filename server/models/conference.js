@@ -4,42 +4,42 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     date: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
     },
     ticketFee: {
-      type: DataTypes.DECIMAL, 
-      allowNull: false
+      type: DataTypes.DECIMAL,
+      allowNull: false,
     },
     state: {
       type: DataTypes.ENUM('unregistered', 'registered'),
-      allowNull: false
+      allowNull: false,
     },
     domain: {
       type: DataTypes.ENUM('scientific', 'business', 'corporate'),
-      allowNull: false
-    }
-  }, 
+      allowNull: false,
+    },
+  },
   {
     classMethods: {
       associate: (models) => {
         Conference.belongsTo(models.EventAdministrator, {
           foreignKey: 'eventAdminId',
-          onDelete: 'CASCADE'
+          onDelete: 'CASCADE',
         });
-      }
-    }
+      },
+    },
   });
   return Conference;
 };
