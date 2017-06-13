@@ -1,3 +1,4 @@
 #!/bin/bash
 
+./node_modules/.bin/gulp prepare-frontend
 node ./server/main.js

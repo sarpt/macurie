@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Macurie Conference Management System</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <script src="bundle.js"></script>
+    <meta charset="UTF-8" /> 
+</head>
+<body>
+
+    <div id="main" ng-app="macurieModule">
+        <div ng-controller="headerController">
+            <header>
+                <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Macurie Conference Management System</a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fa fa-shield"></i> About</a></li>
+                        <li><a href="#" ng-if="!logged"><i class="fa fa-user-plus"></i> Register</a></li>
+                        <li><a href="#/login" ng-if="!logged"><i class="fa fa-sign-in"></i> Login</a></li>
+                        <li><a href="#" ng-if="logged"><i class="fa fa-user"></i> Dashboard</a></li>
+                    </ul>
+                </div>
+                </nav>
+            </header>
+        </div>
+        <div ng-view>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -5,12 +5,15 @@
   "main": "./server/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node ."
+    "serve": "node .",
+    "prepare": "./node_modules/.bin/gulp frontend-prepare"
   },
   "keywords": [],
   "author": "sarpt",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "jsonwebtoken": "^7.4.1",
@@ -28,11 +31,16 @@
     "@types/node": "^7.0.23",
     "@types/pg": "^6.1.40",
     "@types/sequelize": "^4.0.55",
+    "browserify": "^14.4.0",
     "eslint": "^4.0.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
     "nodemon": "^1.11.0",
-    "sequelize-cli": "^2.7.0"
+    "sequelize-cli": "^2.7.0",
+    "uglify-es": "^3.0.15"
   }
 }
