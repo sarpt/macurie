@@ -1,6 +1,13 @@
 const route = require('angular-route');
 
-module.exports = function ($routeProvider) {
+module.exports = function ($locationProvider, $routeProvider) {
+  /*
+  otherwise routing wont work:
+  angular will automatically add shebang #! and router will look for links without it
+  no idea why
+  */
+  $locationProvider.hashPrefix('');
+
   $routeProvider
     .when('/home', {
       templateUrl: '/Views/home.view.html',
@@ -10,7 +17,5 @@ module.exports = function ($routeProvider) {
       templateUrl: '/Views/login.view.html',
       controller: 'loginController',
     })
-    .otherwise({
-      redirectTo: '/home',
-    });
+    .otherwise('/home');
 };

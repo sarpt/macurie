@@ -14,5 +14,5 @@ module.exports = () => {
   macurieModule.controller('headerController', ['$scope', '$userService', headerController]);
   macurieModule.controller('loginController', ['$scope', '$userService', loginController]);
 
-  macurieModule.config(['$routeProvider', routeProvider]);
+  macurieModule.config(['$locationProvider', '$routeProvider', routeProvider]);
 };
