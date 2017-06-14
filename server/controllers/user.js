@@ -35,4 +35,7 @@ module.exports = {
       response.status(401).json({ message: 'Email or password not provided' });
     }
   },
+  you(request, response) {
+
+  },
 };

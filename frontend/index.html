@@ -25,13 +25,13 @@
                         <li><a href="#"><i class="fa fa-shield"></i> About</a></li>
                         <li><a href="#" ng-if="!logged"><i class="fa fa-user-plus"></i> Register</a></li>
                         <li><a href="#/login" ng-if="!logged"><i class="fa fa-sign-in"></i> Login</a></li>
-                        <li><a href="#" ng-if="logged"><i class="fa fa-user"></i> Dashboard</a></li>
+                        <li><a href="#/dashboard" ng-if="logged"><i class="fa fa-user"></i> Dashboard</a></li>
                     </ul>
                 </div>
                 </nav>
             </header>
         </div>
-        <div ng-view>
+        <div ng-view class="row">
         </div>
     </div>
 

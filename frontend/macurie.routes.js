@@ -17,5 +17,12 @@ module.exports = function ($locationProvider, $routeProvider) {
       templateUrl: '/Views/login.view.html',
       controller: 'loginController',
     })
+    .when('/dashboard', {
+      redirectTo: '/dashboard/you',
+    })
+    .when('/dashboard/:view', {
+      templateUrl: '/Views/dashboard.view.html',
+      controller: 'dashboardController',
+    })
     .otherwise('/home');
 };

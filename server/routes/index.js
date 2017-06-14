@@ -5,7 +5,7 @@ module.exports = (app) => {
 
   app.get('/api/*', (request, response) => {
     response.status(200).send({
-      message: 'Welcome to Macurie API. Please remember that you need valid token obtained from a POST request to "/api/user/login" to access most of the API functionality.',
+      message: 'Welcome to Macurie API. Please remember that you need a valid token obtained from a POST request to "/api/user/login" to access most of the API functionality.',
     });
   });
 
