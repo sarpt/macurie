@@ -18,6 +18,7 @@
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",
+    "jwtSecret": "435df345fd",
     "jwtSecret": "",
     "jwtSession": {
       "session": false
@@ -30,6 +31,7 @@
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres",
+    "jwtSecret": "435df345fd",
     "jwtSecret": "",
     "jwtSession": {
       "session": false

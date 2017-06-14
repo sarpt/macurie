@@ -11,6 +11,7 @@ app.use(morganLogger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(auth.initialize());
+app.use(express.static('public'));
 
 routes(app);
 
