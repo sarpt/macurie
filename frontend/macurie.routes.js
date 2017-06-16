@@ -17,6 +17,10 @@ module.exports = function ($locationProvider, $routeProvider) {
       templateUrl: '/Views/login.view.html',
       controller: 'loginController',
     })
+    .when('/register', {
+      templateUrl: '/Views/register.view.html',
+      controller: 'registerController',
+    })
     .when('/dashboard', {
       redirectTo: '/dashboard/you',
     })

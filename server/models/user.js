@@ -42,18 +42,85 @@ module.exports = (sequelize, DataTypes) => {
   {
     classMethods: {
       associate: (models) => {
-
+        User.hasOne(models.Author, {
+          foreignKey: 'userId',
+          as: 'author',
+        });
+        User.hasOne(models.Reviewer, {
+          foreignKey: 'userId',
+          as: 'reviewer',
+        });
+        User.hasOne(models.EventAdministrator, {
+          foreignKey: 'userId',
+          as: 'eventAdministrator',
+        });
       },
-      register: user => User.create({
-        nick: user.nick,
-        name: user.name,
-        surname: user.surname,
-        email: user.email,
-        address: user.address,
-        state: 'unregistered',
-        password: user.password,
-        salt: 'salt',
-      }),
+      // in order to preserve separation of concernes, models are injected by controller
+      register: (models, user) => {
+        return User.findOne({ where: { email: user.email } })
+          .then((foundUser) => {
+            if (foundUser) {
+              return Promise.reject('Provided email is already present in the system');
+            }
+
+            const salt = 'salt';
+            const password = user.password;
+            const userInstance = {
+              nick: user.nick,
+              name: user.name,
+              surname: user.surname,
+              email: user.email,
+              address: user.address,
+              state: 'unregistered',
+              salt: salt,
+              password: password,
+            };
+            const creationOptions = { include: [] };
+
+            if (user.role === 'author') {
+              userInstance.author = {};
+              creationOptions.include.push({
+                model: models.Author,
+                as: 'author',
+              });
+            } else if (user.role === 'reviewer') {
+              userInstance.reviewer = {};
+              creationOptions.include.push({
+                model: models.Reviewer,
+                as: 'reviewer',
+              });
+            } else if (user.role === 'administrator') {
+              userInstance.eventAdministrator = {};
+              creationOptions.include.push({
+                model: models.EventAdministrator,
+                as: 'eventAdministrator',
+              });
+            } else if (user.role !== 'regular') {
+              return Promise.reject('Wrong role');
+            }
+            return User.create(userInstance, creationOptions);
+          });
+      },
+      login: (userInfo) => {
+        if (!userInfo.email || !userInfo.password) {
+          return Promise.reject('Email or password not provided');
+        }
+
+        const email = userInfo.email;
+        const password = userInfo.password;
+
+        return User.findOne({ where: { email } })
+          .then((user) => {
+            if (!user) {
+              return Promise.reject('User not found');
+            } else if (user.password !== password) {
+              return Promise.reject('Wrong password');
+            }
+            return user;
+          });
+      },
+    },
+    instanceMethods: {
     },
   });
   return User;

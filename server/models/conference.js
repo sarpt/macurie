@@ -39,6 +39,12 @@ module.exports = (sequelize, DataTypes) => {
           onDelete: 'CASCADE',
         });
       },
+      list: () => {
+
+      },
+      detail: (id) => {
+
+      },
     },
   });
   return Conference;

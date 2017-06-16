@@ -1,7 +1,13 @@
 const userRoutes = require('./user');
+const conferenceRoutes = require('./conference');
+const paperRoutes = require('./paper');
+const reviewRoutes = require('./review');
 
 module.exports = (app) => {
   userRoutes(app);
+  conferenceRoutes(app);
+  paperRoutes(app);
+  reviewRoutes(app);
 
   app.get('/api/*', (request, response) => {
     response.status(200).send({

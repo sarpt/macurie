@@ -1,0 +1,60 @@
+<div class="panel panel-default col-md-8 col-md-offset-2">
+  <div class="panel-body">
+    <form name="registerViewForm" class="form-horizontal" ng-submit="submit(registerViewForm.$valid)" novalidate>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="register-view-email">Email:</label>
+        <div class="col-sm-10">
+          <input type="email" ng-model="user.email" class="form-control" id="register-view-email" placeholder="Enter email" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="register-view-pwd">Password:</label>
+        <div class="col-sm-10">
+          <input type="password" ng-model="user.password" class="form-control" id="register-view-pwd" placeholder="Enter password" ng-minlength="8" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="register-view-nick">Nick:</label>
+        <div class="col-sm-10">
+          <input type="text" ng-model="user.nick" class="form-control" id="register-view-nick" placeholder="Enter Nick" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="register-view-name">Name:</label>
+        <div class="col-sm-10">
+          <input type="text" ng-model="user.name" class="form-control" id="register-view-name" placeholder="Enter Name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="register-view-surname">Surname:</label>
+        <div class="col-sm-10">
+          <input type="text" ng-model="user.surname" class="form-control" id="register-view-surname" placeholder="Enter Surname" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="register-view-select-role">Role:</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="register-view-select-role" ng-model="user.role" required>
+            <option value="">Please select your role</option>
+            <option value="regular">Regular User</option>
+            <option value="reviewer">Reviewer</option>
+            <option value="author">Author</option>
+            <option value="administrator">Event Administrator</option>
+            <option value="organizer">Organizer</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="register-view-address">Address:</label>
+        <div class="col-sm-10">
+          <input type="text" ng-model="user.address" class="form-control" id="register-view-address" placeholder="Enter Address" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default" ng-disabled="registerViewForm.$invalid">Submit</button>
+        </div>
+      </div>
+    </form> 
+  </div>
+</div>
