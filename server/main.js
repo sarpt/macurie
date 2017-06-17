@@ -6,8 +6,6 @@ const port = parseInt(process.env.PORT, 10) || 8800;
 app.set('port', port);
 
 const server = http.createServer(app);
-models.sequelize.sync().then(() => {
-  server.listen(port);
-  //  server.on('error', onError);
-  //  server.on('listening', onListening);
-});
+server.listen(port);
+//  server.on('error', onError);
+//  server.on('listening', onListening);

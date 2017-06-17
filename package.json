@@ -5,9 +5,10 @@
   "main": "./server/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "npm run prepare && npm run start-server",
-    "prepare": "./node_modules/.bin/gulp frontend-prepare",
-    "start-server": "node ."
+    "serve": "npm run frontend-prepare && npm run start-server",
+    "frontend-prepare": "./node_modules/.bin/gulp frontend-prepare",
+    "start-server": "node .",
+    "database-prepare": "node ./server/database.js"
   },
   "keywords": [],
   "author": "sarpt",
@@ -18,6 +19,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "jsonwebtoken": "^7.4.1",
+    "moment": "^2.18.1",
     "morgan": "^1.8.2",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",

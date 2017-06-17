@@ -38,6 +38,10 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'eventAdminId',
           onDelete: 'CASCADE',
         });
+        Conference.hasMany(models.Paper, {
+          foreignKey: 'conferenceId',
+          as: 'papers',
+        });
       },
       list: () => {
 

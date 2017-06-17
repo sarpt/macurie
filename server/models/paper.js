@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'authorId',
           onDelete: 'CASCADE',
         });
+        Paper.belongsTo(models.Conference, {
+          foreignKey: 'conferenceId',
+          onDelete: 'CASCADE',
+        });
         Paper.hasMany(models.Resource, {
           foreignKey: 'paperId',
           as: 'revisions',
