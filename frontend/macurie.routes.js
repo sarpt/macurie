@@ -28,5 +28,13 @@ module.exports = function ($locationProvider, $routeProvider) {
       templateUrl: '/Views/dashboard.view.html',
       controller: 'dashboardController',
     })
+    .when('/conference', {
+      templateUrl: '/Views/conference.list.view.html',
+      controller: 'conferenceListController',
+    })
+    .when('/conference/:id', {
+      templateUrl: '/Views/conference.detail.view.html',
+      controller: 'conferenceDetailController',
+    })
     .otherwise('/home');
 };

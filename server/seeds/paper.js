@@ -14,6 +14,7 @@ module.exports = () => {
     .then((paper) => {
       paper.setConference(1);
       paper.setAuthor(2);
+      paper.setReview(1);
     }));
 
   const jsConf2Paper = {
@@ -25,6 +26,7 @@ module.exports = () => {
     .then((paper) => {
       paper.setConference(1);
       paper.setAuthor(1);
+      paper.setReview(2);
     }));
 
   const medConf1Paper = {
@@ -36,6 +38,7 @@ module.exports = () => {
     .then((paper) => {
       paper.setConference(2);
       paper.setAuthor(2);
+      paper.setReview(3);
     }));
 
   const gesaConf1Paper = {
@@ -47,6 +50,7 @@ module.exports = () => {
     .then((paper) => {
       paper.setConference(3);
       paper.setAuthor(1);
+      paper.setReview(4);
     }));
 
   return Promise.all(allOperations);

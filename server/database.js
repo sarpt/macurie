@@ -10,8 +10,8 @@ const seeds = require('./seeds');
 database.sequelize.sync({ force: true }).then(() => {
   seeds.userSeeds()
     .then(() => seeds.conferenceSeeds())
-    .then(() => seeds.paperSeeds())
     .then(() => seeds.reviewSeeds())
+    .then(() => seeds.paperSeeds())
     .then(() => seeds.resourceSeeds())
     .catch((error) => {
       console.log(error);

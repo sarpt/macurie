@@ -7,15 +7,15 @@ module.exports = {
   register(request, response) {
     const userInfo = request.body;
     User.register(models, userInfo)
-      .then(user => response.status(201).send(user))
-      .catch(error => response.status(401).send(error));
+      .then(user => response.status(201).send({ data: {} }))
+      .catch(error => response.status(401).send({ message: error }));
   },
   login(request, response) {
     User.login(request.body)
       .then((user) => {
         const payload = { id: user.id };
         const token = auth.issueToken(payload);
-        response.status(201).json({ token });
+        response.status(201).json({ data: { token } });
       })
       .catch((reason) => {
         response.status(401).json({ message: reason });

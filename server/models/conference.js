@@ -43,11 +43,20 @@ module.exports = (sequelize, DataTypes) => {
           as: 'papers',
         });
       },
-      list: () => {
-
-      },
-      detail: (id) => {
-
+      list: () => Conference.findAll({ order: [['createdAt', 'DESC']] }),
+      detail: (conferenceInfo) => {
+        const conferenceId = conferenceInfo.conferenceId;
+        if (!conferenceId) {
+          return Promise.reject('Conference ID not provided');
+        }
+        
+        return Conference.findById(conferenceId)
+          .then((conference) => {
+            if (!conference) {
+              return Promise.reject(`Conference with id=${conferenceId} not found`);
+            }
+            return conference;
+          });
       },
     },
   });

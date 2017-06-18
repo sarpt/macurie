@@ -1,6 +1,6 @@
 const conferenceController = require('../controllers/conference');
 
 module.exports = (app) => {
-  app.post('/api/conference/list', conferenceController.list);
-  app.post('/api/conference/detail', conferenceController.detail);
+  app.get('/api/conference/list', conferenceController.list);
+  app.get('/api/conference/detail/:conferenceId', conferenceController.detail);
 };
