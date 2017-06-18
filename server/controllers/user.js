@@ -7,7 +7,7 @@ module.exports = {
   register(request, response) {
     const userInfo = request.body;
     User.register(models, userInfo)
-      .then(user => response.status(201).send({ data: {} }))
+      .then(user => response.status(201).send({ message: 'Registration successful' }))
       .catch(error => response.status(401).send({ message: error }));
   },
   login(request, response) {

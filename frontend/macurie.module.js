@@ -25,8 +25,8 @@ module.exports = function () {
 
   macurieModule.controller('homeController', ['$scope', homeController]);
   macurieModule.controller('headerController', ['$scope', '$userService', headerController]);
-  macurieModule.controller('loginController', ['$scope', '$userService', '$apiService', loginController]);
-  macurieModule.controller('registerController', ['$scope', '$apiService', registerController]);
+  macurieModule.controller('loginController', ['$scope', '$userService', '$apiService', '$location', loginController]);
+  macurieModule.controller('registerController', ['$scope', '$apiService', '$location', registerController]);
   macurieModule.controller('dashboardController', ['$scope', '$userService', '$routeParams', dashboardController]);
   macurieModule.controller('conferenceListController', ['$scope', '$apiService', conferenceListController]);
   macurieModule.controller('conferenceDetailController', ['$scope', '$apiService', '$routeParams', '$userService', conferenceDetailController]);
