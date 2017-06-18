@@ -121,6 +121,47 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     instanceMethods: {
+      checkRole: function () {
+        const roles = {};
+        return this.getAuthor()
+          .then((author) => {
+            if (author) {
+              roles.author = {
+                id: author.id,
+                type: 'author',
+              };
+            }
+            return this.getReviewer();
+          })
+          .then((reviewer) => {
+            if (reviewer) {
+              roles.reviewer = {
+                id: reviewer.id,
+                type: 'reviewer',
+              };
+            }
+            return this.getEventAdministrator();
+          })
+          .then((eventAdministrator) => {
+            if (eventAdministrator) {
+              roles.eventAdministrator = {
+                id: eventAdministrator.id,
+                type: 'eventAdministrator',
+              };
+            }
+            return Promise.resolve();
+          })
+          .then(() => {
+            if (roles.author) {
+              return roles.author;
+            } else if (roles.reviewer) {
+              return roles.reviewer;
+            } else if (roles.eventAdministrator) {
+              return roles.eventAdministrator;
+            }
+            return { id: this.id, type: 'regular' };
+          });
+      },
     },
   });
   return User;

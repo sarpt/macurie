@@ -3,9 +3,8 @@ module.exports = function ($scope, $userService, $apiService) {
     $apiService.User.login(user)
       .then(
         (result) => {
-          $userService.setLogged(true);
           $userService.setUserEmail(user.email);
-          $userService.setToken(result.data.token);
+          $userService.setUser(result.data);
         },
         (reason) => {
           console.log(reason);

@@ -1,6 +1,7 @@
 module.exports = function ($scope, $userService) {
   const loggedSubscription = $userService.watchLogged((isLogged) => {
     $scope.logged = isLogged;
+    $scope.userRole = $userService.getRoleType();
   });
 
   $scope.$on('$destroy', () => {

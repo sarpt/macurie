@@ -7,6 +7,10 @@ const registerController = require('./Controllers/register.controller');
 const dashboardController = require('./Controllers/dashboard.controller');
 const conferenceListController = require('./Controllers/conference.list.controller');
 const conferenceDetailController = require('./Controllers/conference.detail.controller');
+const paperAddController = require('./Controllers/paper.add.controller');
+const paperDetailController = require('./Controllers/paper.detail.controller');
+const reviewAddController = require('./Controllers/review.add.controller');
+const reviewDetailController = require('./Controllers/review.detail.controller');
 
 const userService = require('./Services/user.service');
 const apiService = require('./Services/api.service');
@@ -25,6 +29,10 @@ module.exports = function () {
   macurieModule.controller('dashboardController', ['$scope', '$userService', '$routeParams', dashboardController]);
   macurieModule.controller('conferenceListController', ['$scope', '$apiService', conferenceListController]);
   macurieModule.controller('conferenceDetailController', ['$scope', '$apiService', '$routeParams', conferenceDetailController]);
+  macurieModule.controller('paperAddController', ['$scope', '$apiService', paperAddController]);
+  macurieModule.controller('paperDetailController', ['$scope', '$apiService', '$routeParams', paperDetailController]);
+  macurieModule.controller('reviewAddController', ['$scope', '$apiService', reviewAddController]);
+  macurieModule.controller('reviewDetailController', ['$scope', '$apiService', reviewDetailController]);
 
   macurieModule.config(['$locationProvider', '$routeProvider', routeProvider]);
 };
