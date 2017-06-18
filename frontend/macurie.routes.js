@@ -2,7 +2,7 @@ const route = require('angular-route');
 
 module.exports = function ($locationProvider, $routeProvider) {
   /*
-  otherwise routing wont work:
+  otherwise routing won't work:
   angular will automatically add shebang #! and router will look for links without it
   no idea why
   */
@@ -35,6 +35,14 @@ module.exports = function ($locationProvider, $routeProvider) {
     .when('/conference/:id', {
       templateUrl: '/Views/conference.detail.view.html',
       controller: 'conferenceDetailController',
+    })
+    .when('/paper/:id', {
+      templateUrl: '/Views/paper.detail.view.html',
+      controller: 'paperDetailController',
+    })
+    .when('/paper/author/:authorId/conference/:conferenceId/add', {
+      templateUrl: '/Views/paper.add.view.html',
+      controller: 'paperAddController',
     })
     .otherwise('/home');
 };

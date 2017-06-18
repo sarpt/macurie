@@ -39,10 +39,30 @@ module.exports = (sequelize, DataTypes) => {
           as: 'revisions',
         });
       },
-      add: () => {
-
+      add: (models, paper) => {
+        const paperInstance = {
+          title: paper.title,
+          subject: paper.subject,
+          summary: paper.summary,
+          revisions: {
+            filename: paper.filename,
+            revisionNumber: 1,
+          },
+        };
+        const paperOptions = {
+          include: [{
+            model: models.Resource,
+            as: 'revisions',
+          }],
+        };
+        return Paper.create(paperInstance, paperOptions)
+          .then((newPaper) => {
+            newPaper.setConference(paper.conferenceId);
+            newPaper.setAuthor(paper.authorId);
+            return Promise.resolve();
+          });
       },
-      listByConference: (paperInfo) => {
+      listByConference: (models, paperInfo) => {
         const conferenceId = paperInfo.conferenceId;
         if (!conferenceId) {
           return Promise.reject('Conference Id not provided');
@@ -72,13 +92,27 @@ module.exports = (sequelize, DataTypes) => {
           return papers;
         });
       },
-      detail: (paperInfo) => {
+      detail: (models, paperInfo) => {
         const paperId = paperInfo.paperId;
         if (!paperId) {
           return Promise.reject('Paper Id not provided');
         }
 
-        return Paper.findById(paperId)
+        return Paper.findOne({
+          where: { id: paperId },
+          include: [
+            {
+              model: models.Resource,
+              as: 'revisions',
+            },
+            {
+              model: models.Author,
+              include: [{
+                model: models.User,
+              }],
+            }
+          ]
+        })
           .then((paper) => {
             if (!paper) {
               return Promise.reject(`Paper with paperId=${paperId} does not exists`);

@@ -19,7 +19,7 @@ module.exports = function () {
     setRole(userRole) { role = userRole; },
     getRoleId() { return role.id; },
     getRoleType() { return role.type; },
-    isAuhtor() { return role.type === 'author'; },
+    isAuthor() { return role.type === 'author'; },
     isReviewer() { return role.type === 'reviewer'; },
     isEventAdministrator() { return role.type === 'eventAdministrator'; },
     isRegularUser() { return role.type === 'regular'; },

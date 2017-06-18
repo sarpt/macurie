@@ -6,7 +6,7 @@ module.exports = () => {
   const allOperations = [];
 
   const jsConf1PaperResource1 = {
-    filename: 'pdf1',
+    filename: 'pdf1.pdf',
     revisionNumber: 1,
   };
   allOperations.push(Resource.create(jsConf1PaperResource1)
@@ -16,7 +16,7 @@ module.exports = () => {
     }));
 
   const jsConf2PaperResource1 = {
-    filename: 'pdf2',
+    filename: 'pdf2.pdf',
     revisionNumber: 1,
   };
   allOperations.push(Resource.create(jsConf2PaperResource1)
@@ -26,7 +26,7 @@ module.exports = () => {
     }));
 
   const medConf1PaperResource1 = {
-    filename: 'pdf1',
+    filename: 'pdf3.pdf',
     revisionNumber: 1,
   };
   allOperations.push(Resource.create(medConf1PaperResource1)
@@ -36,7 +36,7 @@ module.exports = () => {
     }));
 
   const gesaConf1PaperResource1 = {
-    filename: 'pdf2',
+    filename: 'pdf2.pdf',
     revisionNumber: 1,
   };
   allOperations.push(Resource.create(gesaConf1PaperResource1)

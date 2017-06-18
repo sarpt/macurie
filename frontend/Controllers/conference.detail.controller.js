@@ -1,5 +1,6 @@
-module.exports = function ($scope, $apiService, $routeParams) {
+module.exports = function ($scope, $apiService, $routeParams, $userService) {
   $scope.conferenceId = $routeParams.id;
+  $scope.isAuthor = $userService.isAuthor();
   $apiService.Conference.detail($scope.conferenceId)
     .then((result) => {
       $scope.conference = result.data.conference;

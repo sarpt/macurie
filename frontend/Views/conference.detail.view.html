@@ -1,21 +1,33 @@
 <div class="panel panel-default col-md-8 col-md-offset-2">
   <div class="panel-body">
-    <label class="col-sm-2">Name:</label>
-    <div class="col-sm-10">{{conference.name}}</div>
-    <label class="col-sm-2">Description:</label>
-    <div class="col-sm-10">{{conference.description}}</div>
-    <label class="col-sm-2">Domain:</label>
-    <div class="col-sm-10">{{conference.domain}}</div>
-    <label class="col-sm-2">Date of conference:</label>
-    <div class="col-sm-10">{{conference.date}}</div>
-    <label class="col-sm-2">Fee:</label>
-    <div class="col-sm-10">{{conference.ticketFee}}</div>
-    <label class="col-sm-2">Papers:</label>
-    <div class="list-group col-sm-10">
-      <a ng-repeat="paper in papers track by paper.id" href="#/paper/{{paper.id}}" class="list-group-item">
-        <p class="list-group-item-heading">{{paper.title}}</p>
-        <p class="list-group-item-text">{{paper.summary}}</p>
-      </a>
+    <div class="row">
+      <label class="col-sm-2">Name:</label>
+      <div class="col-sm-10">{{conference.name}}</div>
+    </div>
+    <div class="row">
+      <label class="col-sm-2">Description:</label>
+      <div class="col-sm-10">{{conference.description}}</div>
+    </div>
+    <div class="row">
+      <label class="col-sm-2">Domain:</label>
+      <div class="col-sm-10">{{conference.domain}}</div>
+    </div>
+    <div class="row">
+      <label class="col-sm-2">Date of conference:</label>
+      <div class="col-sm-10">{{conference.date}}</div>
+    </div>
+    <div class="row">
+      <label class="col-sm-2">Fee:</label>
+      <div class="col-sm-10">{{conference.ticketFee}}</div>
+    </div>
+    <div class="row">
+      <label class="col-sm-2">Papers:</label>
+      <div class="list-group col-sm-10">
+        <a ng-repeat="paper in papers track by paper.id" href="#/paper/{{paper.id}}" class="list-group-item">
+          <p class="list-group-item-heading">{{paper.title}}</p>
+          <p class="list-group-item-text">{{paper.summary}}</p>
+        </a>
+      </div>
     </div>
   </div>
 </div>

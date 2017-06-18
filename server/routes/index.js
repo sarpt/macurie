@@ -2,12 +2,14 @@ const userRoutes = require('./user');
 const conferenceRoutes = require('./conference');
 const paperRoutes = require('./paper');
 const reviewRoutes = require('./review');
+const uploadRoutes = require('./upload');
 
 module.exports = (app) => {
   userRoutes(app);
   conferenceRoutes(app);
   paperRoutes(app);
   reviewRoutes(app);
+  uploadRoutes(app);
 
   app.get('/api/*', (request, response) => {
     response.status(200).send({
