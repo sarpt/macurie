@@ -10,14 +10,15 @@ module.exports = function ($scope, $apiService, $location) {
           (result) => {
             $scope.showSuccess = true;
             $scope.message = result.data.message;
-            console.log(result);
           },
           (reason) => {
             $scope.showFailure = true;
             $scope.message = reason.data.message;
-            console.log(reason);
           }
         );
+    } else {
+      $scope.showFailure = true;
+      $scope.message = 'Invalid form information';
     }
   };
 

@@ -29,5 +29,11 @@
         </a>
       </div>
     </div>
+    <div class="row" ng-if="isAuthor">
+      <label class="col-sm-2">For authors:</label>
+      <div class="col-sm-10">
+        <input class="btn btn-default" type="button" value="Add paper" ng-click="addPaper()">
+      </div>
+    </div>
   </div>
 </div>

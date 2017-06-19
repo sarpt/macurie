@@ -1,21 +1,43 @@
 <div class="panel panel-default col-md-8 col-md-offset-2">
-  <div class="panel-body">
-    <form class="form-horizontal">
-      <div class="form-group">
+  <div class="panel-body panel-success text-success text-center" ng-show="showSuccess">
+    <div class="col-md-2">
+      <i class="fa fa-check fa-5x"></i>
+    </div>
+    <div class="col-md-6">
+      <h4>Success</h4>
+      <p>{{message}}<p>
+      <input class="btn btn-default" type="button" value="OK" ng-click="clickOk()">
+    </div>
+  </div>
+  <div class="panel-body panel-danger text-danger text-center" ng-show="showFailure">
+    <div class="col-md-2">
+      <i class="fa fa-times fa-5x"></i>
+    </div>
+    <div class="col-md-6">
+      <h4>Error</h4>
+      <p>{{message}}<p>
+      <input class="btn btn-default" type="button" value="Back" ng-click="dismissError()">
+    </div>
+  </div>
+  <div class="panel-body" ng-show="!showSuccess && !showFailure">
+    <form name="loginViewForm" class="form-horizontal" ng-submit="submit(loginViewForm.$valid)" novalidate>
+      <div class="form-group" ng-class="{ 'has-error' : loginViewForm.email.$invalid && !loginViewForm.email.$pristine }">
         <label class="control-label col-sm-2" for="login-view-email">Email:</label>
         <div class="col-sm-10">
-          <input type="email" ng-model="user.email" class="form-control" id="login-view-email" placeholder="Enter email">
+          <input type="email" ng-model="user.email" name="email" class="form-control" id="login-view-email" placeholder="Enter email" required>
+          <p ng-show="loginViewForm.email.$invalid && !loginViewForm.email.$pristine" class="help-block">Proper email needs to provided.</p>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{ 'has-error' : loginViewForm.password.$invalid && !loginViewForm.password.$pristine }">
         <label class="control-label col-sm-2" for="login-view-pwd">Password:</label>
         <div class="col-sm-10">
-          <input type="password" ng-model="user.password" class="form-control" id="login-view-pwd" placeholder="Enter password">
+          <input type="password" ng-model="user.password" name="password" class="form-control" id="login-view-pwd" placeholder="Enter password" ng-minlength="8" required>
+          <p ng-show="loginViewForm.password.$invalid && !loginViewForm.password.$pristine" class="help-block">Proper passowrd needs to be selected.</p>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default" ng-click="submit(user);">Submit</button>
+          <button type="submit" class="btn btn-default" ng-disabled="loginViewForm.$invalid">Submit</button>
         </div>
       </div>
     </form> 

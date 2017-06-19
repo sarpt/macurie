@@ -1,4 +1,4 @@
-module.exports = function ($scope, $apiService, $routeParams, $userService) {
+module.exports = function ($scope, $apiService, $routeParams, $userService, $location) {
   $scope.conferenceId = $routeParams.id;
   $scope.isAuthor = $userService.isAuthor();
   $apiService.Conference.detail($scope.conferenceId)
@@ -12,4 +12,8 @@ module.exports = function ($scope, $apiService, $routeParams, $userService) {
     .catch((error) => {
       console.log(error);
     });
+
+  $scope.addPaper = () => {
+    $location.path(`/paper/author/${$userService.getRoleId()}/conference/${$scope.conferenceId}/add`);
+  };
 };
