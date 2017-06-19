@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-mocks": "^1.6.4",
     "angular-route": "^1.6.4",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
@@ -45,8 +46,15 @@
     "gulp-browserify": "^0.5.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
+    "karma-browserify": "^5.1.1",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
     "nodemon": "^1.11.0",
     "sequelize-cli": "^2.7.0",
-    "uglify-es": "^3.0.15"
+    "uglify-es": "^3.0.15",
+    "watchify": "^3.9.0"
   }
 }

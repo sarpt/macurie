@@ -29,4 +29,9 @@ module.exports = {
   you(request, response) {
 
   },
+  detail(request, response) {
+    User.detail(request.params)
+      .then(user => response.status(201).send({ user }))
+      .catch(reason => response.status(401).send({ message: reason }));
+  },
 };

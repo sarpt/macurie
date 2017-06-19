@@ -119,6 +119,19 @@ module.exports = (sequelize, DataTypes) => {
             return user;
           });
       },
+      detail: (userInfo) => {
+        if (!userInfo.id) {
+          return Promise.reject('User id not provided');
+        }
+
+        return User.findById(userInfo.id)
+          .then((user) => {
+            if (!user) {
+              return Promise.reject('User not found');
+            }
+            return user;
+          });
+      },
     },
     instanceMethods: {
       checkRole: function () {

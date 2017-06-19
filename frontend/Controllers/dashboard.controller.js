@@ -1,5 +1,4 @@
-module.exports = function ($scope, $userService, $routeParams) {
-  $scope.userEmail = $userService.getUserEmail();
+module.exports = function ($scope, $apiService, $userService, $routeParams) {
   $scope.token = $userService.getToken();
 
   if ($routeParams.view) {

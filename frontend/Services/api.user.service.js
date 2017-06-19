@@ -17,9 +17,8 @@ module.exports = function ($http) {
         password: userInfo.password,
       });
     },
-    get(id) {
-      $http.get()
-        .then();
+    detail(id) {
+      return $http.get(`/api/user/detail/${id}`);
     },
   };
 };
