@@ -4,7 +4,7 @@
   "description": "Macurie Conference Management System",
   "main": "./server/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/karma start",
     "serve": "npm run frontend-prepare && npm run start-server",
     "frontend-prepare": "./node_modules/.bin/gulp frontend-prepare",
     "start-server": "node .",
@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-mocks": "^1.6.4",
     "angular-route": "^1.6.4",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
@@ -38,6 +37,7 @@
     "@types/node": "^7.0.23",
     "@types/pg": "^6.1.40",
     "@types/sequelize": "^4.0.55",
+    "angular-mocks": "^1.6.4",
     "browserify": "^14.4.0",
     "eslint": "^4.0.0",
     "eslint-config-airbnb-base": "^11.2.0",
@@ -50,6 +50,7 @@
     "karma": "^1.7.0",
     "karma-browserify": "^5.1.1",
     "karma-chrome-launcher": "^2.1.1",
+    "karma-cli": "^1.0.1",
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0",
     "nodemon": "^1.11.0",

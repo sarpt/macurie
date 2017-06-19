@@ -20,5 +20,8 @@ module.exports = function ($http) {
     detail(id) {
       return $http.get(`/api/user/detail/${id}`);
     },
+    you() {
+      return $http.get('/api/user/you');
+    },
   };
 };

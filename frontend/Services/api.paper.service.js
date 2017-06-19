@@ -1,7 +1,12 @@
-module.exports = function ($http, $fileUpload) {
+module.exports = function ($http, $fileUpload, $userService) {
+  const token = $userService.getToken();
   return {
     listByConference(conferenceId) {
-      return $http.get(`/api/paper/list/conference/${conferenceId}`);
+      return $http.get(`/api/paper/list/conference/${conferenceId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
     },
     listByAuthor(authorId) {
       return $http.get(`'/api/paper/list/author/${authorId}`);

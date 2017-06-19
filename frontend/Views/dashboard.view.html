@@ -5,8 +5,11 @@
 <div class="panel panel-default col-md-6">
   <div class="panel-body">
     <div ng-if="view === 'you'"> 
-      <p>{{userEmail}}</p>
-      <p>{{token}}</p>
+      <p class="row">Nick: {{you.nick}}</p>
+      <p class="row">Name: {{you.name}}</p>
+      <p class="row">Surname: {{you.surname}}</p>
+      <p class="row">Email: {{you.email}}</p>
+      <p class="row">Address: {{you.address}}</p>
     </div>
     <div ng-if="view === 'settings'"> 
       <p>Settings view</p>

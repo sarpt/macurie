@@ -21,7 +21,7 @@ module.exports = function () {
   const macurieModule = angular.module('macurieModule', ['ngRoute', 'ngFileUpload']);
 
   macurieModule.factory('$userService', userService);
-  macurieModule.factory('$apiService', ['$http', 'Upload', apiService]);
+  macurieModule.factory('$apiService', ['$http', 'Upload', '$userService', apiService]);
 
   macurieModule.controller('homeController', ['$scope', homeController]);
   macurieModule.controller('headerController', ['$scope', '$userService', headerController]);

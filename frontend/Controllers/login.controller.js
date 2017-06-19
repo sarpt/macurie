@@ -8,7 +8,6 @@ module.exports = function ($scope, $userService, $apiService, $location) {
       $apiService.User.login($scope.user)
         .then(
           (result) => {
-            $userService.setUserEmail($scope.user.email);
             $userService.setUser(result.data);
             $scope.showSuccess = true;
             $scope.message = 'Login Successful';

@@ -13,7 +13,7 @@ module.exports = function (config) {
     frameworks: ['jasmine', 'browserify'],
 
     preprocessors: {
-      './frontend/macurie.module.js': ['browserify'],
+      './frontend/macurie.main.js': ['browserify'],
       './node_modules/angular-mocks/angular-mocks.js': ['browserify'],
       './tests/frontend/*.spec.js': ['browserify'],
     },
@@ -26,7 +26,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './frontend/macurie.module.js',
+      './frontend/macurie.main.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './tests/frontend/*.spec.js',
     ],
